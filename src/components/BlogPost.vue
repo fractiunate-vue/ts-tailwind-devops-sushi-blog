@@ -2,7 +2,16 @@
   <div class="font-sans leading-normal tracking-normal">
     <nav
       id="header"
-      class="container mx-auto md:max-w-3xl flex justify-between p-4 md:p-6 pt-8"
+      class="
+        container
+        mx-auto
+        md:max-w-3xl
+        flex
+        justify-between
+        p-4
+        md:p-6
+        pt-8
+      "
     >
       <!--     <div class="container w-full md:max-w-3xl mx-auto pt-20">
  -->
@@ -34,8 +43,7 @@
         <div class="">
           <a
             class="
-              text-red-400
-              text-m
+              text-red-400 text-m
               sm:text-xl
               md:text-2xl
               no-underline
@@ -54,7 +62,7 @@
     <!--Container-->
     <div class="container w-full md:max-w-3xl mx-auto pt-2">
       <div
-        class="w-full px-4 md:px-6 text-xl text-gray-800 leading-normal"
+        class="w-full px-4 md:px-6 text-lg text-gray-700 leading-normal"
         style="font-family: Georgia, serif"
       >
         <!--Title-->
@@ -64,16 +72,16 @@
               break-normal
               text-gray-900
               pb-4
-              text-2xl
+              text-3xl
               sm:text-4xl
               md:text-5xl
-              font-sans font-bold
+              font-sans font-black
             "
           >
-            First Blog Post
+            The DevOps Blueprint: Declerative, Up & Running
           </h1>
-          <p class="text-sm md:text-base font-normal text-gray-600">
-            Published 19 February 2019
+          <p class="text-base md:text-2xl font-light text-black">
+            January 10, 2023
           </p>
         </div>
 
@@ -81,22 +89,15 @@
 
         <!--Lead Para-->
         <p class="py-6">
-          👋 Welcome fellow
-          <a
-            class="text-red-500 no-underline hover:underline"
-            href="https://www.tailwindcss.com"
-            >Tailwind CSS</a
-          >
-          and miminal monochrome blog fan. This starter template provides a
-          starting point to create your own minimal monochrome blog using
-          Tailwind CSS and vanilla Javascript.
-        </p>
-
-        <p class="py-6">
-          The basic blog page layout is available and all using the default
-          Tailwind CSS classes (although there are a few hardcoded style tags).
-          If you are going to use this in your project, you will want to convert
-          the classes into components.
+          One of my first IT books ever, that i bought myself, was Terraform Up
+          & Running by Yevgeniy Birkman. Back in 2017 I somehow got a job as
+          Cloud-Engineer at Siemens, without even realizing what I got myself
+          into. Having just about 2 years of programming experience with some
+          basic Web-Interfaces in a SAP production line ecosystem and no prior
+          expertise of Cloud, IAC, Docker, Microservices, HA, Linux whatsoever.
+          Spoiler: This post was deployed without ever using the Azure portal,
+          without manualy touching any resource or doing something other then
+          pushing this .md-file.
         </p>
 
         <h1 class="py-2 font-sans text-2xl font-bold">Heading 1</h1>
@@ -155,7 +156,16 @@
 
         <p class="py-6">Example code block:</p>
         <pre
-          class="bg-gray-900 rounded text-white font-mono text-base p-2 md:p-4  mb-6"
+          class="
+            bg-gray-900
+            rounded
+            text-white
+            font-mono
+            text-base
+            p-2
+            md:p-4
+            mb-6
+          "
         >
 <code class="break-words whitespace-pre-wrap">&lt;header class="site-header outer"&gt;
 &lt;div class="inner"&gt;
@@ -167,10 +177,10 @@
         <!--TODO: Media query for h1 in texts -->
         <!--TODO: Generate H1 classes automatic -->
         <h1 class="py-6 font-sans text-4xl font-bold">Next Up</h1>
-        Up unitl now I still need commits to add a new blog post. My
-        next goal is to add some content-management-system (CMS) to be able to
-        manage my blog posts without touching the code base and have a
-        reasonable distinction between the plattform and the displayed content.
+        Up unitl now I still need commits to add a new blog post. My next goal
+        is to add some content-management-system (CMS) to be able to manage my
+        blog posts without touching the code base and have a reasonable
+        distinction between the plattform and the displayed content.
 
         <!--/ Post Content-->
       </div>
@@ -210,9 +220,9 @@
             declerative cloud architecture. Follow me on
             <!-- TODO: read from config.author.social.twitter -->
             <a
-            class="text-red-500 no-underline hover:underline"
-            href="https://www.tailwindtoolbox.com"
-            >Twitter</a
+              class="text-red-500 no-underline hover:underline"
+              href="https://www.tailwindtoolbox.com"
+              >Twitter</a
             >
             or
             <!-- TODO: read from config.author.social.linkedin -->
