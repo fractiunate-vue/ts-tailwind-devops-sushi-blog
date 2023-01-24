@@ -5,6 +5,14 @@ export default {
   components: {
     BioComponent,
   },
+  // created() {
+  //   this.$watch(
+  //     () => this.$route.params,
+  //     (toParams, previousParams) => {
+  //       // Parameter 'previousParams' implicitly has an 'any' type.
+  //     }
+  //   );
+  // },
 };
 </script>
 

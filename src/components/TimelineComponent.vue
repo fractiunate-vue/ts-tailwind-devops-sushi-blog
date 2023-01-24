@@ -1,31 +1,66 @@
 <script lang="ts">
-export default {
-  data() {
+// import axios from 'axios';
+// import type { AxiosPromise } from 'axios';
+import { v4 as uuidv4 } from 'uuid';
+import { defineComponent } from 'vue';
+import TwitterUserTweetService from '@/services/TwitterUserTweetService';
+import Tweet from '@/types/Twitter';
+
+// 'https://api.twitter.com/2/users/1567977781107081218/tweets?tweet.fields=created_at,author_id&exclude=retweets,replies'
+
+export default defineComponent({
+  mounted() {
+    console.log(TwitterUserTweetService.getAll());
+
+    this.items = [
+      {
+        id: uuidv4(),
+        type: 'post',
+        title: 'My journey with Vue',
+        date: 'June 2022',
+        description: 'This is my first blog post dummy!',
+      },
+      {
+        id: uuidv4(),
+        type: 'tweet',
+        date: 'April 2022',
+        content:
+          'As cloud-native I suggest thinking in untouchable, productive systems that are not allowed to touch, modify or change.',
+      },
+      {
+        id: uuidv4(),
+        type: 'release',
+        title: 'VUE Release',
+        date: 'March 2022',
+        version: '3.0',
+      },
+      {
+        id: uuidv4(),
+        type: 'post',
+        date: 'February 2022',
+        title: 'Why Vue is so fun',
+      },
+    ];
+  },
+  data(): {
+    tweets: { content: string } | null;
+    items: Array<{
+      id: string;
+      date: string;
+      type?: string;
+      title?: string;
+      content?: string;
+      description?: string;
+      version?: string;
+    }> | null;
+    // eslint-disable-next-line
+  } {
     return {
-      items: [
-        {
-          id: 1,
-          type: 'post',
-          title: 'My journey with Vue',
-          description: 'This is my first blog post dummy!',
-        },
-        {
-          id: 2,
-          type: 'tweet',
-          content:
-            'As cloud-native I suggest thinking in untouchable, productive systems that are not allowed to touch, modify or change.',
-        },
-        {
-          id: 3,
-          type: 'release',
-          title: 'VUE Release',
-          version: '3.0',
-        },
-        { id: 4, type: 'post', title: 'Why Vue is so fun' },
-      ],
+      tweets: null,
+      items: null,
     };
   },
-};
+});
 </script>
 
 <template>
@@ -33,6 +68,21 @@ export default {
   <div class="font-sans leading-normal tracking-normal">
     <div class="container justify-between p-4 pt-4 mx-auto md:max-w-3xl md:p-6">
       <ol class="relative border-l border-gray-200 dark:border-gray-700">
+        <li
+          class="mb-10 ml-4"
+          v-for="(item, index) in items"
+          v-bind:key="index"
+        >
+          <div
+            class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
+          ></div>
+          <time class="mb-1 font-mono text-sm leading-none text-gray-400 dark:text-gray-500">{{ item.date }}</time>
+          <h3 class="text-lg font-semibold text-red-500">{{ item.title }}</h3>
+          <p class="mb-4 text-base font-normal text-gray-500">
+            {{ item.description }}
+          </p>
+        </li>
+
         <li class="mb-10 ml-4">
           <div
             class="absolute -left-1.5 mt-1.5 h-3 w-3 rounded-full border border-white bg-gray-200 dark:border-gray-900 dark:bg-gray-700"
