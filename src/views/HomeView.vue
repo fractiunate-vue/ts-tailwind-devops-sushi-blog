@@ -1,21 +1,22 @@
 <template>
   <div class="home">
-    <BlogList/>
+    <HeaderComponent scope="home" />
+    <TimelineComponent />
   </div>
 </template>
 
 <script lang="ts">
 import { Options, Vue } from 'vue-class-component';
-import HelloWorld from '@/components/HelloWorld.vue'; // @ is an alias to /src
 
 import BlogPost from '@/components/BlogPost.vue';
-import BlogList from '@/components/BlogList.vue';
+import TimelineComponent from '@/components/TimelineComponent.vue';
+import HeaderComponent from '@/components/HeaderComponent.vue';
 
 @Options({
   components: {
-    HelloWorld,
+    HeaderComponent,
     BlogPost,
-    BlogList,
+    TimelineComponent,
   },
 })
 export default class HomeView extends Vue {}

@@ -1,103 +1,39 @@
+<script lang="ts">
+import BioComponent from './BioComponent.vue';
+
+export default {
+  components: {
+    BioComponent,
+  },
+};
+</script>
+
 <template>
   <div class="font-sans leading-normal tracking-normal">
-    <nav
-      id="header"
-      class="
-        container
-        mx-auto
-        md:max-w-3xl
-        flex
-        justify-between
-        p-4
-        md:p-6
-        pt-8
-      "
-    >
-      <!--     <div class="container w-full md:max-w-3xl mx-auto pt-20">
- -->
-      <div
-        id="progress"
-        class="h-1 z-20 top-0"
-        style="
-          background: linear-gradient(
-            to right,
-            #4dc0b5 var(--scroll),
-            transparent 0
-          );
-        "
-      ></div>
-
-      <div
-        class="
-          w-full
-          md:max-w-4xl
-          mx-auto
-          flex flex-wrap
-          items-center
-          justify-between
-          mt-0
-          py-3
-        "
-      >
-        <!-- <div class="pl-24"> -->
-        <div class="">
-          <a
-            class="
-              text-red-400 text-m
-              sm:text-xl
-              md:text-2xl
-              no-underline
-              hover:no-underline
-              font-bold
-              break-words
-            "
-            href="#"
-          >
-            🍣+💻 DevOps-Sushi
-          </a>
-        </div>
-      </div>
-    </nav>
-
     <!--Container-->
-    <div class="container w-full md:max-w-3xl mx-auto pt-2">
+    <div class="container w-full pt-2 mx-auto md:max-w-3xl">
       <div
-        class="w-full px-4 md:px-6 text-lg text-gray-700 leading-normal"
+        class="w-full px-4 text-lg leading-normal text-gray-700 md:px-6"
         style="font-family: Georgia, serif"
       >
         <!--Title-->
         <div class="font-sans">
-          <h1
-            class="
-              break-normal
-              text-gray-900
-              pb-4
-              text-3xl
-              sm:text-4xl
-              md:text-5xl
-              font-sans font-black
-            "
-          >
+          <h1 class="pb-4 font-sans text-3xl font-black text-gray-900 break-normal sm:text-4xl md:text-5xl">
             The DevOps Blueprint: Declerative, Up & Running
           </h1>
-          <p class="text-base md:text-2xl font-light text-black">
-            January 10, 2023
-          </p>
+          <p class="text-base font-light text-black md:text-2xl">January 10, 2023</p>
         </div>
 
         <!--Post Content-->
 
         <!--Lead Para-->
         <p class="py-6">
-          One of my first IT books ever, that i bought myself, was Terraform Up
-          & Running by Yevgeniy Birkman. Back in 2017 I somehow got a job as
-          Cloud-Engineer at Siemens, without even realizing what I got myself
-          into. Having just about 2 years of programming experience with some
-          basic Web-Interfaces in a SAP production line ecosystem and no prior
-          expertise of Cloud, IAC, Docker, Microservices, HA, Linux whatsoever.
-          Spoiler: This post was deployed without ever using the Azure portal,
-          without manualy touching any resource or doing something other then
-          pushing this .md-file.
+          One of my first IT books ever, that i bought myself, was Terraform Up & Running by Yevgeniy Birkman. Back in
+          2017 I somehow got a job as Cloud-Engineer at Siemens, without even realizing what I got myself into. Having
+          just about 2 years of programming experience with some basic Web-Interfaces in a SAP production line ecosystem
+          and no prior expertise of Cloud, IAC, Docker, Microservices, HA, Linux whatsoever. Spoiler: This post was
+          deployed without ever using the Azure portal, without manualy touching any resource or doing something other
+          then pushing this .md-file.
         </p>
 
         <h1 class="py-2 font-sans text-2xl font-bold">Heading 1</h1>
@@ -108,65 +44,43 @@
         <h6 class="py-2 font-sans">Heading 6</h6>
 
         <p class="py-6">
-          Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus
-          purus, in mattis tortor sollicitudin pretium. Phasellus at diam
-          posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam,
-          pulvinar ut molestie eget, eleifend ac magna. Sed at lorem
-          condimentum, dignissim lorem eu, blandit massa. Phasellus eleifend
-          turpis vel erat bibendum scelerisque. Maecenas id risus dictum,
-          rhoncus odio vitae, maximus purus. Etiam efficitur dolor in dolor
-          molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae
-          molestie quam fermentum. Donec ac pretium diam. Suspendisse sed odio
-          risus. Nunc nec luctus nisi. Class aptent taciti sociosqu ad litora
-          torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla
-          eget sem dictum elementum.
+          Sed dignissim lectus ut tincidunt vulputate. Fusce tincidunt lacus purus, in mattis tortor sollicitudin
+          pretium. Phasellus at diam posuere, scelerisque nisl sit amet, tincidunt urna. Cras nisi diam, pulvinar ut
+          molestie eget, eleifend ac magna. Sed at lorem condimentum, dignissim lorem eu, blandit massa. Phasellus
+          eleifend turpis vel erat bibendum scelerisque. Maecenas id risus dictum, rhoncus odio vitae, maximus purus.
+          Etiam efficitur dolor in dolor molestie ornare. Aenean pulvinar diam nec neque tincidunt, vitae molestie quam
+          fermentum. Donec ac pretium diam. Suspendisse sed odio risus. Nunc nec luctus nisi. Class aptent taciti
+          sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Duis nec nulla eget sem dictum
+          elementum.
         </p>
 
         <ol>
           <li class="py-3">
-            Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero
-            lectus. Fusce vehicula dictum mi. In non dolor at sem ullamcorper
-            venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo
-            sit amet placerat in, interdum a ipsum. Morbi sit amet tellus
-            scelerisque tortor semper posuere.
+            Maecenas accumsan lacus sit amet elementum porta. Aliquam eu libero lectus. Fusce vehicula dictum mi. In non
+            dolor at sem ullamcorper venenatis ut sed dui. Ut ut est quam. Suspendisse quam quam, commodo sit amet
+            placerat in, interdum a ipsum. Morbi sit amet tellus scelerisque tortor semper posuere.
           </li>
           <li class="py-3">
-            Morbi varius posuere blandit. Praesent gravida bibendum neque eget
-            commodo. Duis auctor ornare mauris, eu accumsan odio viverra in.
-            Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus ut
-            odio tempus, ultrices aliquet ex. Nam id quam eget ipsum luctus
-            hendrerit. Ut eros magna, eleifend ac ornare vulputate, pretium nec
-            felis.
+            Morbi varius posuere blandit. Praesent gravida bibendum neque eget commodo. Duis auctor ornare mauris, eu
+            accumsan odio viverra in. Proin sagittis maximus pharetra. Nullam lorem mauris, faucibus ut odio tempus,
+            ultrices aliquet ex. Nam id quam eget ipsum luctus hendrerit. Ut eros magna, eleifend ac ornare vulputate,
+            pretium nec felis.
           </li>
           <li class="py-3">
-            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices
-            posuere cubilia Curae; Nunc vitae pretium elit. Cras leo mauris,
-            tristique in risus ac, tristique rutrum velit. Mauris accumsan
-            tempor felis vitae gravida. Cras egestas convallis malesuada. Etiam
-            ac ante id tortor vulputate pretium. Maecenas vel sapien suscipit,
-            elementum odio et, consequat tellus.
+            Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Nunc vitae pretium
+            elit. Cras leo mauris, tristique in risus ac, tristique rutrum velit. Mauris accumsan tempor felis vitae
+            gravida. Cras egestas convallis malesuada. Etiam ac ante id tortor vulputate pretium. Maecenas vel sapien
+            suscipit, elementum odio et, consequat tellus.
           </li>
         </ol>
 
-        <blockquote class="border-l-4 border-red-500 italic my-8 pl-8 md:pl-12">
-          Example of blockquote - Lorem ipsum dolor sit amet, consectetur
-          adipiscing elit. Aliquam at ipsum eu nunc commodo posuere et sit amet
-          ligula.
+        <blockquote class="pl-8 my-8 italic border-l-4 border-red-500 md:pl-12">
+          Example of blockquote - Lorem ipsum dolor sit amet, consectetur adipiscing elit. Aliquam at ipsum eu nunc
+          commodo posuere et sit amet ligula.
         </blockquote>
 
         <p class="py-6">Example code block:</p>
-        <pre
-          class="
-            bg-gray-900
-            rounded
-            text-white
-            font-mono
-            text-base
-            p-2
-            md:p-4
-            mb-6
-          "
-        >
+        <pre class="p-2 mb-6 font-mono text-base text-white bg-gray-900 rounded md:p-4">
 <code class="break-words whitespace-pre-wrap">&lt;header class="site-header outer"&gt;
 &lt;div class="inner"&gt;
 <span v-pre>{{!! $thread->body !!}}</span>
@@ -177,105 +91,55 @@
         <!--TODO: Media query for h1 in texts -->
         <!--TODO: Generate H1 classes automatic -->
         <h1 class="py-6 font-sans text-4xl font-bold">Next Up</h1>
-        Up unitl now I still need commits to add a new blog post. My next goal
-        is to add some content-management-system (CMS) to be able to manage my
-        blog posts without touching the code base and have a reasonable
-        distinction between the plattform and the displayed content.
+        Up unitl now I still need commits to add a new blog post. My next goal is to add some content-management-system
+        (CMS) to be able to manage my blog posts without touching the code base and have a reasonable distinction
+        between the plattform and the displayed content.
 
         <!--/ Post Content-->
       </div>
 
       <!--Tags -->
       <!-- TODO: Push to Right -->
-      <div class="text-base md:text-sm text-gray-500 px-4 py-6">
+      <div class="px-4 py-6 text-base text-gray-500 md:text-sm">
         Tags:
         <a
           href="#"
-          class="text-base md:text-sm text-red-500 no-underline hover:underline"
+          class="text-base text-red-500 no-underline hover:underline md:text-sm"
           >Link</a
         >
         ,
         <a
           href="#"
-          class="text-base md:text-sm text-red-500 no-underline hover:underline"
+          class="text-base text-red-500 no-underline hover:underline md:text-sm"
           >Link</a
         >
       </div>
 
       <!--Divider-->
-      <hr class="border-b-2 border-gray-200 mx-8" />
+      <hr class="mx-8 border-b-2 border-gray-200" />
 
       <!--Author-->
-      <div class="flex w-full items-center font-sans px-14 py-12">
-        <img
-          class="w-14 h-14 rounded-full mr-4"
-          src="http://i.pravatar.cc/300"
-          alt="Avatar of Author"
-        />
-        <div class="flex-1 px-2">
-          <p class="text-base md:text-xl leading-none mb-2">
-            <!-- TODO: read from config.author.alias -->
-            Hi I'm <b>Fractiunate</b>, a cloud-native DevOps Engineer
-            specialized in designing, building, and maintaining complex
-            declerative cloud architecture. Follow me on
-            <!-- TODO: read from config.author.social.twitter -->
-            <a
-              class="text-red-500 no-underline hover:underline"
-              href="https://www.tailwindtoolbox.com"
-              >Twitter</a
-            >
-            or
-            <!-- TODO: read from config.author.social.linkedin -->
-            <a
-              class="text-red-500 no-underline hover:underline"
-              href="https://www.tailwindtoolbox.com"
-              >Linked.in</a
-            >
-          </p>
-        </div>
-      </div>
+      <BioComponent class="mb-10"></BioComponent>
       <!--/Author-->
 
       <!--Next & Prev Links-->
-      <div
-        class="font-sans flex justify-between content-center px-4 mb-24 pb-12"
-      >
+      <div class="flex content-center justify-between px-4 pb-12 mb-24 font-sans">
         <div class="text-left">
-          <span class="text-xs md:text-sm font-normal text-gray-600"
-            >&lt; Previous Post</span
-          ><br />
+          <span class="text-xs font-normal text-gray-600 md:text-sm">&lt; Previous Post</span><br />
           <p>
             <a
               href="#"
-              class="
-                break-normal
-                text-base
-                md:text-sm
-                text-red-500
-                font-bold
-                no-underline
-                hover:underline
-              "
+              class="text-base font-bold text-red-500 no-underline break-normal hover:underline md:text-sm"
               >Blog title</a
             >
           </p>
         </div>
         <div class="text-right">
-          <span class="text-xs md:text-sm font-normal text-gray-600"
-            >Next Post &gt;</span
-          ><br />
+          <span class="text-xs font-normal text-gray-600 md:text-sm">Next Post &gt;</span><br />
           <p>
             <a
               href="#"
-              class="
-                break-normal
-                text-base
-                md:text-sm
-                text-red-500
-                font-bold
-                no-underline
-                hover:underline
-              "
+              class="text-base font-bold text-red-500 no-underline break-normal hover:underline md:text-sm"
               >Blog title</a
             >
           </p>
@@ -287,15 +151,14 @@
     <!--/container-->
 
     <footer class="bg-white border-t border-gray-400 shadow">
-      <div class="container max-w-4xl mx-auto flex py-8">
-        <div class="w-full mx-auto flex flex-wrap">
+      <div class="container flex max-w-4xl py-8 mx-auto">
+        <div class="flex flex-wrap w-full mx-auto">
           <div class="flex w-full md:w-1/2">
             <div class="px-8">
               <h3 class="font-bold text-gray-900">About</h3>
-              <p class="py-4 text-gray-600 text-sm">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-                Maecenas vel mi ut felis tempus commodo nec id erat. Suspendisse
-                consectetur dapibus velit ut lacinia.
+              <p class="py-4 text-sm text-gray-600">
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id
+                erat. Suspendisse consectetur dapibus velit ut lacinia.
               </p>
             </div>
           </div>
@@ -303,42 +166,24 @@
           <div class="flex w-full md:w-1/2">
             <div class="px-8">
               <h3 class="font-bold text-gray-900">Social</h3>
-              <ul class="list-reset items-center text-sm pt-3">
+              <ul class="items-center pt-3 text-sm list-reset">
                 <li>
                   <a
-                    class="
-                      inline-block
-                      text-gray-600
-                      no-underline
-                      hover:text-gray-900 hover:text-underline
-                      py-1
-                    "
+                    class="inline-block py-1 text-gray-600 no-underline hover:text-underline hover:text-gray-900"
                     href="#"
                     >Add social link</a
                   >
                 </li>
                 <li>
                   <a
-                    class="
-                      inline-block
-                      text-gray-600
-                      no-underline
-                      hover:text-gray-900 hover:text-underline
-                      py-1
-                    "
+                    class="inline-block py-1 text-gray-600 no-underline hover:text-underline hover:text-gray-900"
                     href="#"
                     >Add social link</a
                   >
                 </li>
                 <li>
                   <a
-                    class="
-                      inline-block
-                      text-gray-600
-                      no-underline
-                      hover:text-gray-900 hover:text-underline
-                      py-1
-                    "
+                    class="inline-block py-1 text-gray-600 no-underline hover:text-underline hover:text-gray-900"
                     href="#"
                     >Add social link</a
                   >
@@ -352,5 +197,4 @@
   </div>
 </template>
 
-<style lang="scss">
-</style>
+<style lang="scss"></style>
