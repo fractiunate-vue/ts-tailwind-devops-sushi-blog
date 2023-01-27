@@ -1,9 +1,28 @@
 <script lang="ts">
+import { defineComponent } from 'vue';
 import BioComponent from './BioComponent.vue';
 
-export default {
+export default defineComponent({
   components: {
     BioComponent,
+  },
+  data(): {
+    featureFlagTagsActive: boolean;
+    featureFlagPostNavigation: boolean;
+    content: {
+      id: string;
+      title: string;
+    };
+    // eslint-disable-next-line
+  } {
+    return {
+      featureFlagTagsActive: false,
+      featureFlagPostNavigation: false,
+      content: {
+        id: '12345',
+        title: 'The DevOps Blueprint: Declerative, Up & Running',
+      },
+    };
   },
   // created() {
   //   this.$watch(
@@ -13,7 +32,7 @@ export default {
   //     }
   //   );
   // },
-};
+});
 </script>
 
 <template>
@@ -22,12 +41,13 @@ export default {
     <div class="container w-full pt-2 mx-auto md:max-w-3xl">
       <div
         class="w-full px-4 text-lg leading-normal text-gray-700 md:px-6"
+        :class="!featureFlagTagsActive ? 'pb-6' : 'pb-0'"
         style="font-family: Georgia, serif"
       >
         <!--Title-->
         <div class="font-sans">
           <h1 class="pb-4 font-sans text-3xl font-black text-gray-900 break-normal sm:text-4xl md:text-5xl">
-            The DevOps Blueprint: Declerative, Up & Running
+            {{ content.title }}
           </h1>
           <p class="text-base font-light text-black md:text-2xl">January 10, 2023</p>
         </div>
@@ -108,7 +128,10 @@ export default {
 
       <!--Tags -->
       <!-- TODO: Push to Right -->
-      <div class="px-4 py-6 text-base text-gray-500 md:text-sm">
+      <div
+        v-if="featureFlagTagsActive"
+        class="px-4 py-6 text-base text-gray-500 md:text-sm"
+      >
         Tags:
         <a
           href="#"
@@ -131,7 +154,10 @@ export default {
       <!--/Author-->
 
       <!--Next & Prev Links-->
-      <div class="flex content-center justify-between px-4 pb-12 mb-24 font-sans">
+      <div
+        v-if="featureFlagPostNavigation"
+        class="flex content-center justify-between px-4 pb-12 mb-24 font-sans"
+      >
         <div class="text-left">
           <span class="text-xs font-normal text-gray-600 md:text-sm">&lt; Previous Post</span><br />
           <p>

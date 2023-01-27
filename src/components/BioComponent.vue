@@ -2,7 +2,7 @@
   <div class="items-start w-full px-10 py-12 pb-0 font-serif font-normal sm:flex sm:pb-0">
     <img
       class="w-0 mr-4 rounded-full sm:h-14 sm:w-14"
-      src="http://i.pravatar.cc/300"
+      src="@/assets/avatar.png"
       alt="Avatar of Author"
     />
     <div class="flex-1 px-2">
