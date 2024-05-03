@@ -46,13 +46,14 @@ export default {
     >
       <!-- <div class="pl-24"> -->
       <div class="">
-        <a
+        <RouterLink to="/"><a
           :class="scope === 'home' ? 'text-5xl text-black' : 'text-m font-bold text-red-400 sm:text-xl md:text-2xl '"
           class="no-underline break-words hover:no-underline"
           href="#"
         >
-          🍣+💻 DevOps-Sushi
-        </a>
+        {{ scope === 'home' ? '🍣+💻 DevOps-Sushi' : 'Back to 🍣+💻 DevOps-Sushi' }}
+                  </a>
+      </RouterLink>
       </div>
     </div>
     <!-- <BioComponent v-if="scope === 'home'" /> -->

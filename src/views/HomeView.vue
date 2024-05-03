@@ -1,23 +1,22 @@
 <template>
   <div class="home">
     <HeaderComponent scope="home" />
-    <TimelineComponent />
+    <TimelineComponent :posts="props.posts" />
+    <FooterComponent/>
   </div>
 </template>
 
-<script lang="ts">
-import { Options, Vue } from 'vue-class-component';
-
-import BlogPost from '@/components/BlogPost.vue';
+<script lang="ts" setup>
 import TimelineComponent from '@/components/TimelineComponent.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
+import { BlogPostItem } from '@/types/BlogPosts';
+import { PropType, defineProps } from 'vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
-@Options({
-  components: {
-    HeaderComponent,
-    BlogPost,
-    TimelineComponent,
+const props = defineProps({
+  posts: {
+    type: Array as PropType<BlogPostItem[]>,
+    required: true,
   },
-})
-export default class HomeView extends Vue {}
+});
 </script>

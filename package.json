@@ -16,7 +16,8 @@
     "uuid": "^9.0.0",
     "vue": "^3.2.13",
     "vue-class-component": "^8.0.0-0",
-    "vue-router": "^4.0.3"
+    "vue-router": "^4.0.3",
+    "yarn": "^1.22.21"
   },
   "devDependencies": {
     "@types/uuid": "^9.0.0",

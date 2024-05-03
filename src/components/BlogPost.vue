@@ -1,49 +1,23 @@
-<script lang="ts">
+<script setup lang="ts">
 import { defineComponent } from 'vue';
 import BioComponent from './BioComponent.vue';
+import FooterComponent from './FooterComponent.vue';
 
-export default defineComponent({
-  components: {
-    BioComponent,
-  },
-  data(): {
-    featureFlagTagsActive: boolean;
-    featureFlagPostNavigation: boolean;
-    content: {
-      id: string;
-      title: string;
-    };
-    // eslint-disable-next-line
-  } {
-    return {
-      featureFlagTagsActive: false,
-      featureFlagPostNavigation: false,
-      content: {
-        id: '12345',
-        title: 'The DevOps Blueprint: Declerative, Up & Running',
-      },
-    };
-  },
-  // created() {
-  //   this.$watch(
-  //     () => this.$route.params,
-  //     (toParams, previousParams) => {
-  //       // Parameter 'previousParams' implicitly has an 'any' type.
-  //     }
-  //   );
-  // },
-});
+const featureFlagTagsActive = false;
+const featureFlagPostNavigation = false;
+const content = {
+  id: '12345',
+  title: 'The DevOps Blueprint: Declerative, Up & Running',
+};
+
 </script>
 
 <template>
   <div class="font-sans leading-normal tracking-normal">
     <!--Container-->
     <div class="container w-full pt-2 mx-auto md:max-w-3xl">
-      <div
-        class="w-full px-4 text-lg leading-normal text-gray-700 md:px-6"
-        :class="!featureFlagTagsActive ? 'pb-6' : 'pb-0'"
-        style="font-family: Georgia, serif"
-      >
+      <div class="w-full px-4 text-lg leading-normal text-gray-700 md:px-6"
+        :class="!featureFlagTagsActive ? 'pb-6' : 'pb-0'" style="font-family: Georgia, serif">
         <!--Title-->
         <div class="font-sans">
           <h1 class="pb-4 font-sans text-3xl font-black text-gray-900 break-normal sm:text-4xl md:text-5xl">
@@ -128,22 +102,11 @@ export default defineComponent({
 
       <!--Tags -->
       <!-- TODO: Push to Right -->
-      <div
-        v-if="featureFlagTagsActive"
-        class="px-4 py-6 text-base text-gray-500 md:text-sm"
-      >
+      <div v-if="featureFlagTagsActive" class="px-4 py-6 text-base text-gray-500 md:text-sm">
         Tags:
-        <a
-          href="#"
-          class="text-base text-red-500 no-underline hover:underline md:text-sm"
-          >Link</a
-        >
+        <a href="#" class="text-base text-red-500 no-underline hover:underline md:text-sm">Link</a>
         ,
-        <a
-          href="#"
-          class="text-base text-red-500 no-underline hover:underline md:text-sm"
-          >Link</a
-        >
+        <a href="#" class="text-base text-red-500 no-underline hover:underline md:text-sm">Link</a>
       </div>
 
       <!--Divider-->
@@ -154,28 +117,21 @@ export default defineComponent({
       <!--/Author-->
 
       <!--Next & Prev Links-->
-      <div
-        v-if="featureFlagPostNavigation"
-        class="flex content-center justify-between px-4 pb-12 mb-24 font-sans"
-      >
+      <div v-if="featureFlagPostNavigation" class="flex content-center justify-between px-4 pb-12 mb-24 font-sans">
         <div class="text-left">
           <span class="text-xs font-normal text-gray-600 md:text-sm">&lt; Previous Post</span><br />
           <p>
-            <a
-              href="#"
-              class="text-base font-bold text-red-500 no-underline break-normal hover:underline md:text-sm"
-              >Blog title</a
-            >
+            <a href="#"
+              class="text-base font-bold text-red-500 no-underline break-normal hover:underline md:text-sm">Blog
+              title</a>
           </p>
         </div>
         <div class="text-right">
           <span class="text-xs font-normal text-gray-600 md:text-sm">Next Post &gt;</span><br />
           <p>
-            <a
-              href="#"
-              class="text-base font-bold text-red-500 no-underline break-normal hover:underline md:text-sm"
-              >Blog title</a
-            >
+            <a href="#"
+              class="text-base font-bold text-red-500 no-underline break-normal hover:underline md:text-sm">Blog
+              title</a>
           </p>
         </div>
       </div>
@@ -183,51 +139,7 @@ export default defineComponent({
       <!--/Next & Prev Links-->
     </div>
     <!--/container-->
-
-    <footer class="bg-white border-t border-gray-400 shadow">
-      <div class="container flex max-w-4xl py-8 mx-auto">
-        <div class="flex flex-wrap w-full mx-auto">
-          <div class="flex w-full md:w-1/2">
-            <div class="px-8">
-              <h3 class="font-bold text-gray-900">About</h3>
-              <p class="py-4 text-sm text-gray-600">
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas vel mi ut felis tempus commodo nec id
-                erat. Suspendisse consectetur dapibus velit ut lacinia.
-              </p>
-            </div>
-          </div>
-
-          <div class="flex w-full md:w-1/2">
-            <div class="px-8">
-              <h3 class="font-bold text-gray-900">Social</h3>
-              <ul class="items-center pt-3 text-sm list-reset">
-                <li>
-                  <a
-                    class="inline-block py-1 text-gray-600 no-underline hover:text-underline hover:text-gray-900"
-                    href="#"
-                    >Add social link</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="inline-block py-1 text-gray-600 no-underline hover:text-underline hover:text-gray-900"
-                    href="#"
-                    >Add social link</a
-                  >
-                </li>
-                <li>
-                  <a
-                    class="inline-block py-1 text-gray-600 no-underline hover:text-underline hover:text-gray-900"
-                    href="#"
-                    >Add social link</a
-                  >
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-    </footer>
+    <FooterComponent />
   </div>
 </template>
 

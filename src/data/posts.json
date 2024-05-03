@@ -1,0 +1,32 @@
+[
+    {
+      "id": "hello-world",
+      "type": "post",
+      "title": "My journey with Vue",
+      "date": "June 2022",
+      "description": "This is my first blog post dummy!"
+    },
+    {
+      "id": "tweet-1-todo",
+      "type": "tweet",
+      "link": "tweet",
+      "date": "April 2022",
+      "content":
+      "As cloud-native I suggest thinking in untouchable, productive systems that are not allowed to touch, modify or change."
+    },
+    {
+      "id": "vue-release-3-0",
+      "type": "release",
+      "title": "VUE Release",
+      "date": "March 2022",
+      "link": "vue-release",
+      "version": "3.0"
+    },
+    {
+      "id": "why-vue-is-fun",
+      "type": "post",
+      "link": "#",
+      "date": "February 2022",
+      "title": "Why Vue is so fun"
+    }
+  ]
