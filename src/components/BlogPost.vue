@@ -29,18 +29,14 @@ const route = useRoute();
 const path = computed(() => route.path);
 
 onMounted(() => {
-  console.log(props.post);
+  console.log();
   // access post list here
   // props.posts
   // load the markdown file here
   // 💡 Pre-Load all hovered post and access local post cache first
 });
 
-const content = {
-  title: 'Hello World',
-  body: 'This is a markdown editor',
-};
-const text = ref('# Hello Editor\n\nThis is a markdown editor\n\n!!! info hello\n\n!!!');
+const content = ref(props.post.content);
 
 </script>
 
@@ -51,18 +47,23 @@ const text = ref('# Hello Editor\n\nThis is a markdown editor\n\n!!! info hello\
       <!--Title-->
       <div class="font-sans">
         <h1 class="pb-4 font-sans text-3xl font-black text-gray-900 break-normal sm:text-4xl md:text-5xl">
-          {{ content.title }}
+          {{ props.post.title }}
         </h1>
-        <p class="text-base font-light text-black md:text-2xl">January 10, 2023</p>
+        <p class="text-base font-light text-black md:text-2xl">{{ post.date }}</p>
       </div>
 
-      <MdPreview :editorId="id" :modelValue="text" />
+        <MdPreview :editorId="id" :modelValue="content" />
     </div>
     <FooterComponent />
   </div>
 </template>
 
 <style lang="less">
+
+.md-editor-preview-wrapper {
+  padding-left: 0px !important;
+}
+
 .css-vars(@isDark) {
   --md-color: if(@isDark, #999, #222);
   --md-hover-color: if(@isDark, #bbb, #000);

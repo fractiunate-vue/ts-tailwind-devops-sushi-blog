@@ -1,9 +1,9 @@
 <template>
     <footer class="bg-white border-t border-gray-400 shadow">
-        <div class="container flex max-w-4xl py-6 mx-auto">
+        <div class="container flex py-6 mx-auto md:max-w-3xl md:y-6 justify-between">
             <div class="flex flex-wrap w-full mx-auto">
                 <div class="flex w-full md:w-1/2">
-                    <div class="px-8">
+                    <div class="">
                         <h3 class="font-bold text-gray-900">About</h3>
                         <p class="py-4 text-sm text-gray-600">
                             This is a open-source based private blog to share cloud and tech knowledge for free. Sources are licensed under the open-source
@@ -13,7 +13,7 @@
                 </div>
 
                 <div class="flex w-full md:w-1/2">
-                    <div class="px-8">
+                    <div class="">
                         <h3 class="font-bold text-gray-900">Social</h3>
                         <ul class="items-center pt-3 text-sm list-reset">
                             <li>

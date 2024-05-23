@@ -2,9 +2,10 @@
     {
       "id": "hello-world",
       "type": "post",
-      "title": "My journey with Vue",
-      "date": "June 2022",
-      "description": "This is my first blog post dummy!"
+      "title": "Hello journey with Vue",
+      "date": "January 10, 2023",
+      "description": "This is a quick project",
+      "content": "## Hello Editor\n\nThis is a markdown editor\n\n!!! info hello\n\n!!!"
     },
     {
       "id": "hello-world",
