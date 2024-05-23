@@ -6,7 +6,7 @@
                     <div class="px-8">
                         <h3 class="font-bold text-gray-900">About</h3>
                         <p class="py-4 text-sm text-gray-600">
-                            This is a open-source based, non-profit blog. Sources are licensed under the open-source
+                            This is a open-source based private blog to share cloud and tech knowledge for free. Sources are licensed under the open-source
                             MIT.
                         </p>
                     </div>

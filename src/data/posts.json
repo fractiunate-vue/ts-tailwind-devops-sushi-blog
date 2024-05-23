@@ -7,6 +7,20 @@
       "description": "This is my first blog post dummy!"
     },
     {
+      "id": "hello-world",
+      "type": "post",
+      "title": "My journey with Vue",
+      "date": "June 2022",
+      "description": "This is my first blog post dummy!"
+    },
+    {
+      "id": "hello-world",
+      "type": "post",
+      "title": "My journey with Vue",
+      "date": "June 2022",
+      "description": "This is my first blog post dummy!"
+    },
+    {
       "id": "tweet-1-todo",
       "type": "tweet",
       "link": "tweet",
