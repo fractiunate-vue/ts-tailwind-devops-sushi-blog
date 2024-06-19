@@ -1,8 +1,7 @@
 <script setup lang="ts">
 import { useRoute } from 'vue-router';
-import {
-  PropType, defineProps, computed, onMounted, ref,
-} from 'vue';
+// eslint-disable-next-line
+import { PropType, defineProps, computed, onMounted, ref } from 'vue';
 import { config, MdPreview, MdCatalog } from 'md-editor-v3';
 import { lineNumbers } from '@codemirror/view';
 import { BlogPostItem } from '@/types/BlogPosts';
@@ -20,7 +19,7 @@ config({
 const props = defineProps({
   id: String,
   post: {
-    type: Object as PropType<BlogPostItem> || undefined,
+    type: (Object as PropType<BlogPostItem>) || undefined,
     required: true,
   },
 });
@@ -36,29 +35,34 @@ onMounted(() => {
   // 💡 Pre-Load all hovered post and access local post cache first
 });
 
-const content = ref(props.post.content);
-
+const content = ref(props.post?.content || 'No Content Available');
 </script>
 
 <template>
-  <div class="font-sans leading-normal tracking-normal">
+  <div class="div-blogpost flex flex-col font-sans leading-normal tracking-normal">
     <!--Container-->
-    <div class="container w-full pt-2 mx-auto md:max-w-3xl">
+    <div class="container mx-auto w-full pt-2 md:max-w-3xl">
       <!--Title-->
       <div class="font-sans">
-        <h1 class="pb-4 font-sans text-3xl font-black text-gray-900 break-normal sm:text-4xl md:text-5xl">
-          {{ props.post.title }}
+        <h1 class="break-normal pb-4 font-sans text-3xl font-black text-gray-900 sm:text-4xl md:text-5xl">
+          {{ props.post?.title || 'Not ting ham to see hea' }}
         </h1>
-        <p class="text-base font-light text-black md:text-2xl">{{ post.date }}</p>
+        <p class="text-base font-light text-black md:text-2xl">{{ props.post?.date || '1337' }}</p>
       </div>
 
-        <MdPreview :editorId="id" :modelValue="content" />
+      <MdPreview
+        :editorId="id"
+        :modelValue="content"
+      />
     </div>
     <FooterComponent />
   </div>
 </template>
 
 <style lang="less">
+.div-blogpost {
+  height: 100%;
+}
 
 .md-editor-preview-wrapper {
   padding-left: 0px !important;

@@ -17,17 +17,18 @@ const props = defineProps({
     required: true,
   },
 });
-
 </script>
 <template>
   <div class="font-sans leading-normal tracking-normal">
-    <div class="container justify-between p-4 pt-4 mx-auto md:max-w-3xl md:p-6">
+    <div class="container mx-auto justify-between p-4 pt-4 md:max-w-3xl md:p-6">
       <ol class="relative border-l border-gray-200 dark:border-gray-700">
-        <li class="mb-10 ml-4 ease-in-out delay-150 transition-margin hover:ml-6" v-for="(post, index) in props.posts"
-          v-bind:key="index">
-          <TimelineItem :post="post"/>
+        <li
+          class="transition-margin mb-10 ml-4 delay-150 ease-in-out hover:ml-6"
+          v-for="(post, index) in props.posts"
+          v-bind:key="index"
+        >
+          <TimelineItem :post="post" />
         </li>
-
       </ol>
     </div>
   </div>

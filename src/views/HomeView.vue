@@ -2,7 +2,7 @@
   <div class="home">
     <HeaderComponent scope="home" />
     <TimelineComponent :posts="props.posts" />
-    <FooterComponent/>
+    <FooterComponent />
   </div>
 </template>
 
@@ -20,3 +20,11 @@ const props = defineProps({
   },
 });
 </script>
+
+<style>
+.home {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+</style>

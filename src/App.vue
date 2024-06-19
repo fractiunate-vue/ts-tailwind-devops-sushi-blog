@@ -1,3 +1,3 @@
 <template>
-  <router-view/>
+  <router-view style="height: 100%" />
 </template>

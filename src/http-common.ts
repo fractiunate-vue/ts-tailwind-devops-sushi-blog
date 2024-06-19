@@ -2,15 +2,12 @@ import axios, { AxiosInstance } from 'axios';
 
 // eslint-disable-next-line
 let token = "API_BEARER_TOKEN"
+// axios.defaults.headers.common = { Authorization: `bearer ${token}` };
 
-axios.defaults.headers.common = { Authorization: `bearer ${token}` };
-
+// TODO: Update baseURL to match the API endpoint from dotenv
 // eslint-disable-next-line
-const baseURL =
-  // eslint-disable-next-line
-  'https://api.twitter.com/2/users/1567977781107081218' +
-  // eslint-disable-next-line
-  '/tweets?tweet.fields=created_at,author_id&exclude=retweets,replies';
+const baseURL = 'http://localhost:8080/api/v1';
+
 const apiClient: AxiosInstance = axios.create({
   baseURL,
   headers: {
