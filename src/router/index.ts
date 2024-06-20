@@ -3,6 +3,8 @@ import { createRouter, createWebHistory, RouteRecordRaw } from 'vue-router';
 // import posts from '@/data/posts.json';
 import { BlogPostItem } from '@/types/BlogPosts';
 import stores from '@/stores/blogStore';
+import BlogPostEdit from '@/components/BlogPostEdit.vue';
+import BlogPost from '@/components/BlogPost.vue';
 import HomeView from '../views/HomeView.vue';
 
 let posts: Array<BlogPostItem> = [];
@@ -15,12 +17,21 @@ const routes: Array<RouteRecordRaw> = [
     props: { posts },
   },
   {
+    path: '/create',
+    name: 'create',
+    component: () => import('../views/BlogPostView.vue'),
+    props: {
+      subcomponent: BlogPostEdit,
+    },
+  },
+  {
     path: '/:id',
     name: 'entry',
     component: () => import('../views/BlogPostView.vue'),
     props: (route) => ({
       id: route ? route.params.id : null,
       post: posts.find((post) => post.id === (route ? route.params.id : null)),
+      subcomponent: BlogPost,
     }),
   },
   {
@@ -54,6 +65,8 @@ router.beforeEach((to) => {
     });
   }
   toast.clear();
+
+  console.log('Navigating to:', to.name);
   return true;
 });
 

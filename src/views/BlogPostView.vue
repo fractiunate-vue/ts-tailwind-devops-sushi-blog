@@ -1,28 +1,34 @@
 <template>
   <div class="home">
     <HeaderComponent scope="post"></HeaderComponent>
-    <BlogPost :id=props.id :post=props.post />
+
+    <component
+      :is="subcomponent"
+      :id="props.id"
+      :post="props.post"
+    ></component>
+
+    <FooterComponent />
   </div>
 </template>
 
 <script lang="ts" setup>
-import { Options, Vue } from 'vue-class-component';
-
-import BlogPost from '@/components/BlogPost.vue';
 import HeaderComponent from '@/components/HeaderComponent.vue';
-import BioComponent from '@/components/BioComponent.vue';
-import { defineProps, PropType } from 'vue';
+// eslint-disable-next-line
+import { ref, defineProps, PropType, Component } from 'vue';
 import { BlogPostItem } from '@/types/BlogPosts';
+import BlogPostEdit from '@/components/BlogPostEdit.vue';
+import BlogPost from '@/components/BlogPost.vue';
 
 const props = defineProps({
   id: String,
   post: {
-    type: Object as PropType<BlogPostItem> || undefined,
+    type: Object as PropType<BlogPostItem | undefined>,
+    required: false,
+  },
+  subcomponent: {
+    type: Object as PropType<typeof BlogPostEdit | typeof BlogPost>,
     required: true,
   },
 });
-
 </script>
-
-<!-- import { BlogPostItem } from '@/types/BlogPosts'; -->
-<!-- import { PropType } from 'vue'; -->

@@ -13,7 +13,7 @@
     "autoprefixer": "^10",
     "axios": "^0.18.1",
     "core-js": "^3.8.3",
-    "md-editor-v3": "^4.15.0",
+    "md-editor-v3": "^4.16.9",
     "pinia": "^2.1.7",
     "postcss": "^8",
     "tailwindcss": "^3",
