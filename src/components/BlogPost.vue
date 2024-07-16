@@ -6,7 +6,6 @@ import { config, MdPreview, MdCatalog } from 'md-editor-v3';
 import { lineNumbers } from '@codemirror/view';
 import { BlogPostItem } from '@/types/BlogPosts';
 // import BioComponent from './BioComponent.vue';
-import FooterComponent from './FooterComponent.vue';
 
 import 'md-editor-v3/lib/style.css';
 
@@ -55,7 +54,6 @@ const content = ref(props.post?.content || 'No Content Available');
         :modelValue="content"
       />
     </div>
-    <FooterComponent />
   </div>
 </template>
 

@@ -15,10 +15,11 @@
 <script lang="ts" setup>
 import HeaderComponent from '@/components/HeaderComponent.vue';
 // eslint-disable-next-line
-import { ref, defineProps, PropType, Component } from 'vue';
+import { ref, defineProps, PropType } from 'vue';
 import { BlogPostItem } from '@/types/BlogPosts';
 import BlogPostEdit from '@/components/BlogPostEdit.vue';
 import BlogPost from '@/components/BlogPost.vue';
+import FooterComponent from '@/components/FooterComponent.vue';
 
 const props = defineProps({
   id: String,

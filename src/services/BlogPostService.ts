@@ -1,5 +1,6 @@
 /* eslint-disable */
 import http from '@/http-common';
+import { BlogPostItem } from '@/types/BlogPosts';
 
 class BlogPostService {
   getAll(): Promise<any> {
@@ -10,8 +11,12 @@ class BlogPostService {
     return http.get(`/posts/${id}`);
   }
 
-  create(data: any): Promise<any> {
-    return http.post('/posts', data);
+  create(article: BlogPostItem): Promise<any> {
+    return http.post('/posts', JSON.stringify(article));
+  }
+
+  publishArticle(article_id: string): Promise<any> {
+    return http.post(`/publish/${article_id}`);
   }
 
   update(id: any, data: any): Promise<any> {

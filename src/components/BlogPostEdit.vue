@@ -1,13 +1,52 @@
 <script setup lang="ts">
-import { useRoute } from 'vue-router';
 // eslint-disable-next-line
-import { PropType, defineProps, computed, onMounted, ref, nextTick } from 'vue';
+import { onMounted, ref } from 'vue';
 // import BioComponent from './BioComponent.vue';
-import { MdEditor } from 'md-editor-v3';
+import { MdEditor, MdPreview } from 'md-editor-v3';
 import 'md-editor-v3/lib/style.css';
-import { v4 as uuidv4, v4 } from 'uuid';
+import { useToast } from 'vue-toastification';
+import BlogDocument from '@/data/BlogDocument';
+
+import BlogPostService from '@/services/BlogPostService';
 
 const titleEdit = ref(null);
+const toast = useToast();
+const isPreview = ref(false);
+
+const togglePreview = () => {
+  isPreview.value = !isPreview.value;
+};
+
+const publishDraft = async () => {
+  if (!BlogDocument.value.created) {
+    toast.error(`[Error] ID: ${BlogDocument.value.id} not found. Please save the draft first.`);
+    return;
+  }
+  if (!BlogDocument.value.published) {
+    try {
+      await BlogPostService.publishArticle(BlogDocument.value.id);
+    } catch (error) {
+      toast.error(`[Error] Failed to publish ID: ${BlogDocument.value.id} - ${error}`);
+      return;
+    }
+    toast.success(`[Success] Published ID: ${BlogDocument.value.id}`);
+  } else {
+    toast.info(`[Info] Unpublish already Published ID: ${BlogDocument.value.id}`);
+  }
+  BlogDocument.value.published = !BlogDocument.value.published;
+};
+
+const saveDraft = async () => {
+  try {
+    const reponse = await BlogPostService.create(BlogDocument.value);
+    console.log(reponse); // TODO: get the article url : reponse.data.url --> "devops-sushi/{url}"
+  } catch (error) {
+    toast.error(`[Error] Failed to save article id: ${BlogDocument.value.id} - ${error}`);
+    return;
+  }
+  BlogDocument.value.created = true;
+  toast.success(`[Success] Draft Saved for ID: ${BlogDocument.value.id}`);
+};
 
 const disableTitleEditFocus = () => {
   titleEdit.value.style['padding-left'] = '0px';
@@ -19,20 +58,6 @@ const focusInput = () => {
     titleEdit.value.style['padding-left'] = '5px';
   }
 };
-
-const blogDocument = ref({
-  id: v4(),
-  content: '',
-  title: 'Enter new Title',
-  date: new Date().toLocaleDateString('en-us', {
-    weekday: 'long',
-    year: 'numeric',
-    month: 'short',
-    day: 'numeric',
-  }),
-});
-
-console.log(blogDocument.value.id);
 
 onMounted(() => {
   console.log();
@@ -57,20 +82,52 @@ onMounted(() => {
           @focus="focusInput()"
           class="break-normal pb-4 font-sans text-3xl font-black text-gray-900 sm:text-4xl md:text-5xl"
         >
-          {{ blogDocument.title || 'Not ting ham to see hea' }}
+          {{ BlogDocument.title || 'Not ting ham to see hea' }}
         </h1>
         <p class="text-base font-light text-black md:text-2xl">
           {{
-            blogDocument.date ||
+            BlogDocument.date ||
             new Date().toLocaleDateString('en-us', { weekday: 'long', year: 'numeric', month: 'short', day: 'numeric' })
           }}
         </p>
       </div>
       <div class="mb-5">
         <MdEditor
-          v-model="blogDocument.content"
+          v-if="!isPreview"
+          v-model="BlogDocument.content"
           language="en-US"
         />
+        <MdPreview
+          v-if="isPreview"
+          v-model="BlogDocument.content"
+          language="en-US"
+        />
+      </div>
+      <div
+        class="flex items-center"
+        style="gap: 10px; margin-bottom: 100px"
+      >
+        <button
+          @click="publishDraft()"
+          type="button"
+          class="me-2 hover: mb-2 grow rounded-sm bg-gradient-to-r from-red-300 via-red-400 to-red-400 px-5 py-2.5 text-center text-sm font-medium text-black shadow-red-500/50 hover:bg-gradient-to-br hover:text-white focus:outline-none focus:ring-2 focus:ring-red-300 dark:shadow-lg dark:shadow-red-800/80 dark:focus:ring-red-800"
+        >
+          {{ BlogDocument.published ? 'Unpublish' : 'Publish' }}
+        </button>
+        <button
+          @click="saveDraft()"
+          type="button"
+          class="mme-2 hover: mb-2 grow rounded-sm bg-gradient-to-r from-red-300 via-red-400 to-red-400 px-5 py-2.5 text-center text-sm font-medium text-black shadow-red-500/50 hover:bg-gradient-to-br hover:text-white focus:outline-none focus:ring-2 focus:ring-red-300 dark:shadow-lg dark:shadow-red-800/80 dark:focus:ring-red-800"
+        >
+          Save Draft
+        </button>
+        <button
+          @click="togglePreview()"
+          type="button"
+          class="me-2 hover: mb-2 grow rounded-sm bg-gradient-to-r from-red-300 via-red-400 to-red-400 px-5 py-2.5 text-center text-sm font-medium text-black shadow-red-500/50 hover:bg-gradient-to-br hover:text-white focus:outline-none focus:ring-2 focus:ring-red-300 dark:shadow-lg dark:shadow-red-800/80 dark:focus:ring-red-800"
+        >
+          {{ isPreview ? 'Edit' : 'Preview' }}
+        </button>
       </div>
     </div>
   </div>
